@@ -24,7 +24,7 @@ pytest --cov=.
 docker-compose up -d --build
 ```
 
-## Адрес Swagger после сборки
+## Адрес Swagger после сборки Docker контейнера
 
 ```
 http://localhost:8000/docs#/
