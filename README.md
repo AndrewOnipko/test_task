@@ -17,3 +17,15 @@ python main.py --file test_logs/example1.log --report average --date 2025-06-22
 ```bash
 pytest --cov=.
 ```
+
+## Для сборки Docker контейнера
+
+```bash
+docker-compose up -d --build
+```
+
+## Адрес Swagger после сборки
+
+```
+http://localhost:8000/docs#/
+```
