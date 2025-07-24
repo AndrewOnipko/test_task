@@ -1,9 +1,11 @@
 # Тестовое задание
 
-## Запуск скрипта
+## Запуск скрипта 
+
+Из корня проекта
 
 ```bash
-python main.py --file example1.log --report average --date 2025-06-22
+python main.py --file test_logs/example1.log --report average --date 2025-06-22
 ```
 
 * --file - путь к файлу
