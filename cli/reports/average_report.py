@@ -9,6 +9,10 @@ class AverageReport(Report):
         return self._build_table(stats)
 
 
+    def headers(self) -> list[str]:
+        return ["Endpoint", "Count", "Average Response Time"]
+    
+    
     def _aggregate(self, logs: list[dict]) -> dict:
         """Формирует отчёт, собирая словарь формата "url":[response_time1, response_time2 ...]"""
 

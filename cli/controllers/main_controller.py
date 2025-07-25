@@ -14,6 +14,7 @@ class MainController:
 
         report = get_report(self.report_name)
         data = report.generate(logs)
+        headers = report.headers()
 
-        output = self.table_formatter.format(data, headers=["Endpoint", "Count", "Average Response Time"])
+        output = self.table_formatter.format(data, headers=headers)
         print(output)

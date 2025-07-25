@@ -7,11 +7,13 @@ class ReportRequest(BaseModel):
         example=["app/test_logs/example1.log"],
         description="Список путей к лог-файлам внутри контейнера"
     )
+    
     report: str = Field(
         ...,
         example="average",
         description="Тип отчета (сейчас доступен только 'average')"
     )
+
     date: Optional[str] = Field(
         None,
         example="2025-06-22",
