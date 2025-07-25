@@ -1,16 +1,15 @@
 from collections import defaultdict
 from reports.base_report import Report
-from typing import List
 
 class AverageReport(Report):
-    def generate(self, logs: List[dict]) -> List[List]:
+    def generate(self, logs: list[dict]) -> list[list]:
         """Генерирует отчёт, поочередно запуская приватные функции"""
 
         stats = self._aggregate(logs)
         return self._build_table(stats)
 
 
-    def _aggregate(self, logs: List[dict]) -> dict:
+    def _aggregate(self, logs: list[dict]) -> dict:
         """Формирует отчёт, собирая словарь формата "url":[response_time1, response_time2 ...]"""
 
         endpoint_stats = defaultdict(list)
@@ -22,7 +21,7 @@ class AverageReport(Report):
         return endpoint_stats
     
 
-    def _build_table(self, stats: dict) -> List[List]:
+    def _build_table(self, stats: dict) -> list[list]:
         """Собирает таблицу, вычисляет колличество вызовов для каждого эндпоинта и среднее время ответа этого эндпоинта [url, request_count, average_response_times]"""
         
         result = []

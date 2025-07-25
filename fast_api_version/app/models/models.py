@@ -1,8 +1,8 @@
 from pydantic import BaseModel, Field
-from typing import List, Optional
+from typing import Optional
 
 class ReportRequest(BaseModel):
-    files: List[str] = Field(
+    files: list[str] = Field(
         ...,
         example=["app/test_logs/example1.log"],
         description="Список путей к лог-файлам внутри контейнера"

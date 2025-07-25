@@ -30,7 +30,7 @@ def main():
     parser.add_argument('--report', choices=['average'], required=True, help='Report type')
     parser.add_argument('--date', required=False, help='Filter logs by date (YYYY-MM-DD)')
     args = parser.parse_args()
-    log_parser = LogParser(logger, args.file, args.date, )
+    log_parser = LogParser(logger, args.file, args.date)
     table_formattet = TableFormatter(logger)
     controller = MainController(args.report, log_parser, table_formattet, logger)
     controller.run()
