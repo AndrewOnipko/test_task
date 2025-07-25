@@ -15,9 +15,20 @@ class AverageReport(Report):
         endpoint_stats = defaultdict(list)
         for log in logs:
             url = log.get("url")
-            response_time = log.get("response_time", 0)
-            if url:
-                endpoint_stats[url].append(response_time)
+            rt = log.get("response_time")
+
+            if not url:
+                continue
+
+            try:
+                response_time = float(rt)
+                if not (0 <= response_time < float("inf")):
+                    continue  
+            except (TypeError, ValueError):
+                continue 
+
+            endpoint_stats[url].append(response_time)
+
         return endpoint_stats
     
 
@@ -31,15 +42,3 @@ class AverageReport(Report):
             result.append([endpoint, request_count, round(average_time, 4)])
         return result
     
-
-    def as_dict(self, data: dict[str, list]) -> list[dict]:
-        """Возвразщаем читаемо для API"""
-        
-        return [
-            {
-                "endpoint": endpoint,
-                "count": stats["count"],
-                "average_response_time": stats["average"]
-            }
-            for endpoint, stats in data.items()
-        ]
