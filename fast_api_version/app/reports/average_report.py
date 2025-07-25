@@ -9,7 +9,7 @@ class AverageReport(Report):
         return self._build_table(stats)
 
 
-    def _aggregate(self, logs:lList[dict]) -> dict:
+    def _aggregate(self, logs:list[dict]) -> dict:
         """Формирует отчёт, собирая словарь формата "url":[response_time1, response_time2 ...]"""
 
         endpoint_stats = defaultdict(list)
